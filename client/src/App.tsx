@@ -19,7 +19,7 @@ const App: React.FC = () => {
     fetch('http://localhost:5000/api/welcome')
       .then((res) => res.json())
       .then((json) => {
-        // Using 'as AppData' tells TypeScript exactly what the data is
+        // Use 'as AppData' to satisfy the red underlines
         setData(json as AppData);
       })
       .catch((err) => console.error("Server connection error:", err));

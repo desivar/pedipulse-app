@@ -1,16 +1,15 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path'); // Move this to the top
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000; // Hardcoded for now to ensure it works
 
 // 1. Middleware
 app.use(cors()); 
 app.use(express.json());
 
-// 2. API Routes (The "Brain")
+// 2. The API Route (The Nurse's Greeting)
 app.get('/api/welcome', (req, res) => {
   res.json({
     message: "Ready to make a difference today?",
@@ -19,16 +18,7 @@ app.get('/api/welcome', (req, res) => {
   });
 });
 
-// 3. Static Files (Serving the "Face" - React)
-// This only matters when you run the "production" build
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
-// 4. Catch-all (Must be LAST)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
-
-// 5. Start Server
+// 3. Start Server
 app.listen(PORT, () => {
-  console.log(`Server is skipping along on http://localhost:${PORT}`);
+  console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });

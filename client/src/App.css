@@ -116,3 +116,33 @@
   from { transform: scale(1); }
   to { transform: scale(1.1); }
 }
+
+/* Styling for the "Finish Shift" and "Add Task" buttons */
+.shift-btn, .task-form button {
+  background-color: var(--mint);
+  color: #555;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.shift-btn:hover, .task-form button:hover {
+  background-color: var(--sky);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Soft glow when typing a new task */
+.task-form input:focus {
+  border-color: var(--sky);
+  box-shadow: 0 0 8px rgba(123, 223, 242, 0.4);
+}
+
+/* Ensure Kid-View stickers are playful */
+.kid-view .sticker {
+  animation: bounce 0.6s infinite alternate;
+  cursor: pointer;
+}

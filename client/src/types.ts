@@ -12,5 +12,5 @@ export interface Sticker {
 export interface AppData {
   message: string;
   quote: string;
-  palette: string[];
+  palette: string[]; // Note: Your backend sends a 'palette' array, so we must include it!
 }

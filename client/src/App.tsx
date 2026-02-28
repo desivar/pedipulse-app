@@ -16,13 +16,14 @@ const App: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Fetching the welcome data from our Node server
     fetch('http://localhost:5000/api/welcome')
       .then((res) => res.json())
-      .then((json: AppData) => setData(json))
+      .then((json) => {
+        // Using 'as AppData' tells TypeScript exactly what the data is
+        setData(json as AppData);
+      })
       .catch((err) => console.error("Server connection error:", err));
   }, []);
-
   return (
     <div className={`app-container ${isKidMode ? 'kid-view' : ''}`}>
       <header className="nurse-header">

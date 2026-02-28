@@ -12,5 +12,5 @@ export interface Sticker {
 export interface AppData {
   message: string;
   quote: string;
-  palette: string[]; // This was missing and causing an error!
+  palette: string[]; 
 }
